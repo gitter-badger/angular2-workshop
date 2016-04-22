@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {User} from '../../models/user';
 import {UsersStore} from '../../providers/users-store';
@@ -8,7 +9,7 @@ import {UsersStore} from '../../providers/users-store';
   template: require('./users-index.html'),
   styles: [],
   providers: [],
-  directives: [],
+  directives: [ROUTER_DIRECTIVES],
   pipes: []
 })
 export class UsersIndex {

@@ -10,6 +10,7 @@
 	<tr *ngFor="#user of users">
 		<td>{{ user.id }}</td>
 		<td>{{ user.email }}</td>
+		<td><a [routerLink]="['/UsersEdit', {id: user.id}]">Edit</a></td>
 	</tr>
 	</tbody>
 </table>
