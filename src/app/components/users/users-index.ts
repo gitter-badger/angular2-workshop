@@ -21,4 +21,8 @@ export class UsersIndex {
     this.usersStore.getList()
       .subscribe((users: User[]) => this.users = users);
   }
+
+  routerOnActivate(): boolean {
+    return this.usersStore.api.isAuthenticated();
+  }
 }

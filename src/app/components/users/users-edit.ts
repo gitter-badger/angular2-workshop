@@ -48,4 +48,8 @@ export class UsersEdit {
         // this.router.navigate(['/UsersIndex']);
       });
   }
+
+  routerOnActivate(): boolean {
+    return this.usersStore.api.isAuthenticated();
+  }
 }

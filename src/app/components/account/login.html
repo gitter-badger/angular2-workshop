@@ -1,0 +1,13 @@
+<form [ngFormModel]="userForm" (ngSubmit)="onSubmit()" novalidate>
+	<field [errors]="userForm.controls.email.errors">
+		<label>Email</label>
+		<input ngControl="email" class="form-control">
+	</field>
+	<field [errors]="userForm.controls.password.errors">
+		<label>Password</label>
+		<input type="password" ngControl="password" class="form-control">
+	</field>
+	<button type="submit" class="btn btn-default" [disabled]="!userForm.valid">
+		Login
+	</button>
+</form>

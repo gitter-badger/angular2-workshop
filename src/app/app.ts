@@ -6,6 +6,9 @@ import '../styles/app.scss';
 
 import {UsersIndex} from './components/users/users-index';
 import {UsersEdit} from './components/users/users-edit';
+import {Login} from './components/account/login';
+import {Logout} from './components/account/logout';
+import {Api} from './providers/api';
 
 @Component({
   selector: 'app',
@@ -17,7 +20,10 @@ import {UsersEdit} from './components/users/users-edit';
 })
 @RouteConfig([
   {path: '/users', component: UsersIndex, name: 'UsersIndex', useAsDefault: true},
-  {path: '/users/:id', component: UsersEdit, name: 'UsersEdit'}
+  {path: '/users/:id', component: UsersEdit, name: 'UsersEdit'},
+  {path: '/login', component: Login, name: 'Login'},
+  {path: '/logout', component: Logout, name: 'Logout'}
 ])
 export class App {
+  constructor(public api: Api) {}
 }

@@ -7,8 +7,6 @@ import {User} from '../models/user';
 
 @Injectable()
 export class UsersStore {
-  apiHost: string = 'http://localhost:8081';
-
   constructor(public api: Api) {}
 
   getList(): Observable<User[]> {
