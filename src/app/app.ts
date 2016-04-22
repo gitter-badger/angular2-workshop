@@ -6,11 +6,10 @@ import '../styles/app.scss';
 
 import {UsersIndex} from './components/users/users-index';
 import {UsersEdit} from './components/users/users-edit';
-import {UsersStore} from './providers/users-store';
 
 @Component({
   selector: 'app',
-  providers: [UsersStore, FORM_PROVIDERS],
+  providers: [FORM_PROVIDERS],
   directives: [ROUTER_DIRECTIVES],
   pipes: [],
   styles: [],

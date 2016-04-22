@@ -1,30 +1,34 @@
 import {Injectable} from 'angular2/core';
-import * as _ from 'lodash';
+import {RequestMethod, Response} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import {Api} from './api';
 
 import {User} from '../models/user';
 
 @Injectable()
 export class UsersStore {
-  users: User[] = [];
+  apiHost: string = 'http://localhost:8081';
 
-  constructor() {
-    this.users = [
-      new User({id: 1, email: 't.bak@selleo.com', password: 'secret'}),
-      new User({id: 2, email: 'max@example.com', password: 'secret'})
-    ];
+  constructor(public api: Api) {}
+
+  getList(): Observable<User[]> {
+    return this.api.request(RequestMethod.Get, '/users')
+      .map((res: Response) => {
+        return res.json().map((object: any) => new User(object));
+      });
   }
 
-  getList(): User[] {
-    return this.users;
+  getOne(id: number): Observable<User> {
+    return this.api.request(RequestMethod.Get, `/users/${id}`)
+      .map((res: Response) => {
+        return new User(res.json());
+      });
   }
 
-  getOne(id: number): User {
-    return _.find(this.users, {id});
-  }
-
-  update(user: User): User {
-    let index = _.findIndex(this.users, {id: user.id});
-    this.users.splice(index, 1, user);
-    return user;
+  update(user: User): Observable<User> {
+    return this.api.request(RequestMethod.Put, `/users/${user.id}`, {body: user})
+      .map((res: Response) => {
+        return new User(res.json());
+      });
   }
 }

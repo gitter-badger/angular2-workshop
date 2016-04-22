@@ -15,7 +15,10 @@ import {UsersStore} from '../../providers/users-store';
 export class UsersIndex {
   users: User[] = [];
 
-  constructor(public usersStore: UsersStore) {
-    this.users = usersStore.getList();
+  constructor(public usersStore: UsersStore) {}
+
+  ngOnInit() {
+    this.usersStore.getList()
+      .subscribe((users: User[]) => this.users = users);
   }
 }

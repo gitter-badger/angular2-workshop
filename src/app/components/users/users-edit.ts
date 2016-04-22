@@ -25,21 +25,27 @@ export class UsersEdit {
   }
 
   ngOnInit() {
-    this.user = this.usersStore.getOne(Number(this.routeParams.get('id')));
-    this.userForm = new ControlGroup({
-      email: new Control(
-        this.user.email,
-        Validators.compose([Validators.required, CustomValidators.emailFormat])
-      ),
-      password: new Control(
-        this.user.password,
-        Validators.compose([Validators.required, Validators.minLength(6)])
-      )
-    });
+    this.usersStore.getOne(Number(this.routeParams.get('id')))
+      .subscribe((user: User) => {
+        this.user = user;
+        this.userForm = new ControlGroup({
+          email: new Control(
+            this.user.email,
+            Validators.compose([Validators.required, CustomValidators.emailFormat])
+          ),
+          password: new Control(
+            this.user.password,
+            Validators.compose([Validators.required, Validators.minLength(6)])
+          )
+        });
+      });
   }
 
   onSubmit() {
-    this.user = Object.assign(this.user, this.userForm.value);
-    // this.router.navigate(['/UsersIndex']);
+    Object.assign(this.user, this.userForm.value);
+    this.usersStore.update(this.user)
+      .subscribe((user: User) => {
+        // this.router.navigate(['/UsersIndex']);
+      });
   }
 }
