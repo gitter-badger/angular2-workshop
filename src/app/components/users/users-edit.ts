@@ -5,13 +5,14 @@ import {Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/commo
 import {User} from '../../models/user';
 import {CustomValidators} from '../../providers/custom-validators';
 import {UsersStore} from '../../providers/users-store';
+import {Field} from '../ui/field';
 
 @Component({
   selector: 'users-edit',
   template: require('./users-edit.html'),
   styles: [],
   providers: [],
-  directives: [FORM_DIRECTIVES],
+  directives: [Field, FORM_DIRECTIVES],
   pipes: []
 })
 export class UsersEdit {

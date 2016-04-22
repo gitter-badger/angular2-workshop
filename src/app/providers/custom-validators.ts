@@ -1,6 +1,6 @@
 import {Control} from 'angular2/common';
 
-interface ValidatorResult {
+export interface ValidatorResult {
   [key: string]: boolean;
 }
 
