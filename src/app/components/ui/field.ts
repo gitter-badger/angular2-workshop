@@ -1,13 +1,13 @@
 import {Component, Input} from 'angular2/core';
-import {ValidatorResult} from '../../providers/custom-validators';
+import {Control} from 'angular2/common';
 
 @Component({
   selector: 'field',
   template: `
-    <div class="form-group" [ngClass]="{'has-error': errors}">
+    <div class="form-group" [ngClass]="{'has-error': control.errors && control.touched}">
       <ng-content></ng-content>
-			<div class="help-block" *ngIf="errors">
-				{{errors | json}}
+			<div class="help-block" *ngIf="control.errors && control.touched">
+				{{control.errors | json}}
 			</div>
 		</div>
   `,
@@ -17,5 +17,5 @@ import {ValidatorResult} from '../../providers/custom-validators';
   pipes: []
 })
 export class Field {
-  @Input('errors') errors: ValidatorResult[];
+  @Input('control') control: Control;
 }

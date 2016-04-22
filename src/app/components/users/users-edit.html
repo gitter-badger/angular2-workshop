@@ -1,10 +1,10 @@
 <div *ngIf="user">
 	<form [ngFormModel]="userForm" (ngSubmit)="onSubmit()" novalidate>
-		<field [errors]="userForm.controls.email.errors">
+		<field [control]="userForm.controls.email">
 			<label>Email</label>
 			<input ngControl="email" class="form-control">
 		</field>
-		<field [errors]="userForm.controls.password.errors">
+		<field [control]="userForm.controls.password">
 			<label>password</label>
 			<input type="password" ngControl="password" class="form-control">
 		</field>
