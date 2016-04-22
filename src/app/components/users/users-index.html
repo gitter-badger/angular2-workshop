@@ -7,5 +7,9 @@
 	</tr>
 	</thead>
 	<tbody>
+	<tr *ngFor="#user of users">
+		<td>{{ user.id }}</td>
+		<td>{{ user.email }}</td>
+	</tr>
 	</tbody>
 </table>
