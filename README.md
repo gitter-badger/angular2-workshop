@@ -1,5 +1,7 @@
 # angular2-webpack
 
+[![Join the chat at https://gitter.im/Selleo/angular2-workshop](https://badges.gitter.im/Selleo/angular2-workshop.svg)](https://gitter.im/Selleo/angular2-workshop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Dependency Status](https://david-dm.org/preboot/angular2-webpack/status.svg)](https://david-dm.org/preboot/angular2-webpack#info=dependencies) [![devDependency Status](https://david-dm.org/preboot/angular2-webpack/dev-status.svg)](https://david-dm.org/preboot/angular2-webpack#info=devDependencies)
 
 A complete, yet simple, starter for Angular 2 using Webpack.
